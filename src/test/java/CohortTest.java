@@ -15,6 +15,10 @@ public class CohortTest {
         testStud1 = new Student(1, "Trinity");
         testStud2 = new Student(2, "Enzo");
         testStud3 = new Student(3, "Maritza");
+
+        testCohort.addStudent(testStud1);
+        testCohort.addStudent(testStud2);
+        testCohort.addStudent(testStud3);
     }
 
     @Test
@@ -30,10 +34,12 @@ public class CohortTest {
         testStud2.addGrade(85);
         testStud3.addGrade(77);
 
-        testCohort.addStudent(testStud1);
-        testCohort.addStudent(testStud2);
-        testCohort.addStudent(testStud3);
-
         Assert.assertTrue(testCohort.getCohortAverage() == (double)(90+85+77) / 3);
+    }
+
+    @Test
+    public void testFindStudent() {
+        Assert.assertEquals(testCohort.findStudentById(2), testStud2);
+        Assert.assertNull(testCohort.findStudentById(99));
     }
 }

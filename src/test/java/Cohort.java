@@ -24,4 +24,13 @@ public class Cohort {
     public List<Student> getStudents() {
         return students;
     }
+
+    public Student findStudentById(long id) {
+        for (Student stud : students) {
+            if (stud.getID() == id) {
+                return stud;
+            }
+        }
+        return null;
+    }
 }
